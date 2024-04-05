@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .md{
+            display: flex;
+            /* gap:px; */
+        }
+        .igdiv,.s_div{
+/* border:1px solid black; */
+width:50%;
+padding:5% 10% 3% 10%;
+
+        }
+        #imgg{
+            width:20%;
+            margin-left:20%;
+        }
+        .cur{
+            display: flex;
+            /* column-gap:5%; */
+            justify-content: space-around;
+            /* margin-left:40px; */
+            /* border:1px solid black; */
+        }
+        .cur>div{
+            border:5px solid black;
+            box-shadow: 10px 10px 2px 2px;
+            width:25%;
+            height:250px;
+            text-align:center;
+            /* padding:10px; */
+            margin-top:5%;
+            background-color:lightsalmon;
+        }
+        .rem{
+            color:red;
+        }
+        .nm,.nm1{
+            /* color:red; */
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var aa=window.localStorage.getItem("overalldata")
+        var b=JSON.parse(aa)
+        console.log(b);
+      
+        var currency=["AUD","USD","INR"]
+        var mk=[b.market]
+        var a=document.createElement("div")
+        document.body.appendChild(a)
+        a.setAttribute("class","md")
+        
+        var a1=document.createElement("div")
+        a.appendChild(a1)
+        a1.setAttribute("class","igdiv")
+       
+        var img1=document.createElement("img")
+        a1.appendChild(img1)
+        img1.setAttribute("src",b["image"]["small"])
+        img1.setAttribute("id","imgg")
+
+        var n_div=document.createElement("div")
+        a.appendChild(n_div)
+        n_div.setAttribute("class","s_div")
+        
+        
+        var nam=document.createElement("h1")
+        n_div.appendChild(nam)//id
+        nam.setAttribute("class","nm")
+        nam.innerHTML="ID: "+b["id"]
+
+        var name2=document.createElement("h3")
+        n_div.appendChild(name2)//name
+        name2.setAttribute("class","nm1")
+        // name2.style.color="red"
+          name2.innerHTML="Name: "+b["name"]
+
+        var currency=document.createElement("div")
+        document.body.appendChild(currency)
+        currency.setAttribute("class","cur")
+         
+        var currency1=document.createElement("div")
+        currency.appendChild(currency1)
+        
+        
+        var hh=document.createElement("h2")
+        currency1.appendChild(hh);
+        hh.innerText="Australia"
+        hh.setAttribute("class","rem")
+1
+        var aus=document.createElement("h3")
+        currency1.appendChild(aus)
+        aus.innerHTML="Current Price: "+b["market_data"]["current_price"]["aud"]+`&#36;`
+
+        var aus1=document.createElement("h3")
+        currency1.appendChild(aus1)
+        aus1.innerText="Market cap: "+b["market_data"]["market_cap"]["aud"]
+
+        var aus2=document.createElement("h3")
+        currency1.appendChild(aus2)
+        aus2.innerText="Total volume: "+b["market_data"]["total_volume"]["aud"]
+        
+
+
+        var currency2=document.createElement("div")
+        currency.appendChild(currency2)
+        // currency2.setAttribute("class","rem")
+        
+        var hh1=document.createElement("h2")
+        currency2.appendChild(hh1);
+        hh1.innerText="India"
+        hh1.setAttribute("class","rem")
+
+        var doll=document.createElement("h3")
+        currency2.appendChild(doll)
+        doll.innerHTML="Current Price: "+b["market_data"]["current_price"]["inr"]+`&#8377;`
+
+        var doll1=document.createElement("h3")
+        currency2.appendChild(doll1)
+        doll1.innerText="Market cap: "+b["market_data"]["market_cap"]["inr"]
+
+        var doll2=document.createElement("h3")
+        currency2.appendChild(doll2)
+        doll2.innerText="Total volume: "+b["market_data"]["total_volume"]["inr"]
+        
+
+        var currency3=document.createElement("div")
+        currency.appendChild(currency3)
+        // currency3.setAttribute("class","rem")
+
+        var hh2=document.createElement("h2")
+        currency3.appendChild(hh2);
+        hh2.innerText="Europe"
+        hh2.setAttribute("class","rem")
+
+        var rup=document.createElement("h3")
+        currency3.appendChild(rup)
+        rup.innerHTML="Current Price: "+b["market_data"]["current_price"]["eur"]+`&euro;`
+
+        var rup1=document.createElement("h3")
+        currency3.appendChild(rup1)
+        rup1.innerText="Market cap: "+b["market_data"]["market_cap"]["eur"]
+
+        var rup2=document.createElement("h3")
+        currency3.appendChild(rup2)
+        rup2.innerText="Total volume: "+b["market_data"]["total_volume"]["eur"]
+        
+    </script>
+</body>
+</html>
